@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 
 namespace DiscountApplier;
@@ -15,7 +16,7 @@ public class DiscountApplier
     public void ApplyV1(double discount, List<User> users)
     {
         // BUG! should be i = 0
-        for(int i = 1; i < users.Count; i++)
+        for(int i = 0; i < users.Count; i++)
         {
             var message = $"You've got a discount of {discount}";
             var user = users[i];
@@ -29,7 +30,7 @@ public class DiscountApplier
         {
             var message = $"You've got a discount of {discount}";
             // BUG! should be users[i]
-            var user = users[0];
+            var user = users[i];
             _notifier.Notify(user, message);
         }
     }
